@@ -77,7 +77,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     file_list = get_file_list(args.files)
     
-    print ("CPU count set to: " + str(cpu_count())
+    print ("CPU count set to: " + str(cpu_count()))
     start_time = time()
     with Pool(cpu_count()) as p:
       p.map(generate_logs, file_list)
