@@ -23,7 +23,7 @@
 # IN THE SOFTWARE.
 
 # this script will generate dummy log files.
-# ./generate --lines 10000 --files 10000 ~ 10GB of data
+# ./generate --lines 10000 --files 10000 # ~ 10GB of data
 
 import argparse
 import os
