@@ -72,7 +72,7 @@ def get_file_list(file_num):
         file_list.append("file" + str(each) + ".txt")
     return file_list
 
-# def that runs in parellel   
+# def that runs in parallel   
 def generate_logs(file_name):
     f = open("./test/" + file_name, "w+")
     for each in range (0, args.lines):
