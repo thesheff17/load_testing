@@ -58,18 +58,6 @@ def check_dir():
         shutil.rmtree("./test")
         os.mkdir(path)
 
-def get_cpu():
-    num_of_cpu = cpu_count()
-    if num_of_cpu < 3:
-        print ("cpu process set to 2")
-        return 2
-    elif num_of_cpu < 5:
-        print ("cpu process set to 4")
-        return 4
-    else:
-        print ("cpu process set to " + str(num_of_cpu - 2))
-        return num_of_cpu - 2
-
 def get_file_list(file_num):
     file_list = []
     for each in range (0, file_num):
@@ -88,10 +76,10 @@ if __name__ == "__main__":
     check_dir()
     args = parser.parse_args()
     file_list = get_file_list(args.files)
-    num_of_cpu = get_cpu()
     
+    print ("CPU count set to: " + str(cpu_count())
     start_time = time()
-    with Pool(num_of_cpu) as p:
+    with Pool(cpu_count()) as p:
       p.map(generate_logs, file_list)
     end_time = time()
     seconds_elapsed = end_time - start_time
