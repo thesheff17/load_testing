@@ -22,8 +22,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-# this script will generate dummy log files.
-# ./generate.py --lines 10000 --files 10000 # ~ 10GB of data
+# this script will generate dummy apache2 logs.  
+# The below command will generate about 10GB of data
+# ./generate.py --lines 10000 --files 10000 
 
 import argparse
 import os
