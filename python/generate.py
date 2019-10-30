@@ -63,6 +63,9 @@ def get_cpu():
     if num_of_cpu < 3:
         print ("cpu process set to 2")
         return 2
+    else if num_of_cpu < 5:
+        print ("cpu process set to 4")
+        return 4
     else:
         print ("cpu process set to " + str(num_of_cpu - 2))
         return num_of_cpu - 2
