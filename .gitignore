@@ -20,6 +20,7 @@ docker_load.sh
 docker_save.sh
 reader_output.txt
 writer_output.txt
+reader_single_output.txt
 test/*
 
 # Elastic Beanstalk Files
