@@ -23,7 +23,7 @@
 # IN THE SOFTWARE.
 
 # This script will attempt to read multiple log files as fast as possible.
-# ./reader.py
+# ./reader_logs.py
 
 import os
 from multiprocessing import Pool, cpu_count
@@ -61,11 +61,6 @@ def generate_logs(file_name):
     return ip_list
 
 
-def dump_dict(my_dict):
-    f = open("reader_output.txt", "w+")
-    for k, v in my_dict.items():
-        f.write("key: " + k + " value: " + str(v) + "\n")
-
 if __name__ == "__main__":
 
     check_dir()
@@ -86,6 +81,10 @@ if __name__ == "__main__":
     start_time1 = time()
     res = ChainMap(*output)
     end_time1 = time()
+    seconds_elapsed1 = end_time1 - start_time1
+
+    print("Time took to combine dictionaries...") 
+    print(seconds_elapsed1)
 
     # output the top 10 IP addresses in the log
     a1_sorted_keys = sorted(res, key=res.get, reverse=True)
@@ -98,8 +97,6 @@ if __name__ == "__main__":
         else:
             x += 1
     f.close()
-    
-    seconds_elapsed1 = end_time1 - start_time1
-    print("Time took to combine dictionaries: " + str(seconds_elapsed1))
+
     num_of_unique_ip = str(len(res))
     print("number of unique ip address: " + num_of_unique_ip)

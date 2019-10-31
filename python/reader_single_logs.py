@@ -49,9 +49,9 @@ def generate_logs():
 
     # quick way to see what this script is producing
     # for now I will leave it commented out
-    f = open("reader_single_output.txt", "w+")
-    f.write(str(ip_list))
-    f.close()
+    # f = open("reader_single_output.txt", "w+")
+    # f.write(str(ip_list))
+    # f.close()
 
     return ip_list
 
