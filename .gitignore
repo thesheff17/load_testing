@@ -21,7 +21,7 @@ docker_save.sh
 reader_output.txt
 writer_output.txt
 reader_single_output.txt
-test/*
+python/test/*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
