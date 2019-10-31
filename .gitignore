@@ -18,6 +18,9 @@ docker/main/env.txt
 *.log
 docker_load.sh
 docker_save.sh
+reader_output.txt
+writer_output.txt
+test/*
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
