@@ -22,9 +22,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-# this script will generate dummy apache2 logs.  
+# this script will generate dummy apache2 logs.
 # The below command will generate about 10GB of data
-# ./generate.py --lines 10000 --files 10000 
+# ./write_logs.py --lines 10000 --files 10000
 
 import argparse
 import os
@@ -38,17 +38,17 @@ parser.add_argument('--lines', type=int, help='number of lines')
 parser.add_argument('--files', type=int, help='number of files')
 
 # some of these variables I need in a global scope so they are here.
-print ("generating ip list...")
+print("generating ip list...")
 ip_list = []
-prefix = "192."
-for a in range (1, 255):
-    for b in range (1, 255):
-       for c in range (1, 255):
-            ip_list.append(prefix + str(a) + "." + str(b) + "." + str(c))
-print ("ip_list ready.")
+prefix = "192.168."
+for a in range(1, 255):
+    for b in range(1, 255):
+        ip_list.append(prefix + str(a) + "." + str(b))
+print("ip_list ready.")
 
-END = ' - - [09/Jan/2015:19:12:06 +0000] 808840 "GET http://google.com HTTP/1.1" 200 17 "-" "POKEMON"'
+END = ' - - [09/Jan/2015:19:12:06 +0000] 808840 "GET http://google.com HTTP/1.1" 200 17 "-" "POKEMON"' #NOQA
 args = parser.parse_args()
+
 
 def check_dir():
     path = './test'
@@ -58,29 +58,32 @@ def check_dir():
         shutil.rmtree("./test")
         os.mkdir(path)
 
+
 def get_file_list(file_num):
     file_list = []
-    for each in range (0, file_num):
+    for each in range(0, file_num):
         file_list.append("file" + str(each) + ".txt")
     return file_list
 
-# def that runs in parallel   
+
+# def that runs in parallel
 def generate_logs(file_name):
     f = open("./test/" + file_name, "w+")
-    for each in range (0, args.lines):
+    for each in range(0, args.lines):
         f.write(random.choice(ip_list) + END + "\n")
     f.close()
-    
+
+
 if __name__ == "__main__":
 
     check_dir()
     args = parser.parse_args()
     file_list = get_file_list(args.files)
-    
-    print ("CPU count set to: " + str(cpu_count()))
+
+    print("CPU count set to: " + str(cpu_count()))
     start_time = time()
     with Pool(cpu_count()) as p:
-      p.map(generate_logs, file_list)
+        p.map(generate_logs, file_list)
     end_time = time()
     seconds_elapsed = end_time - start_time
-    print (seconds_elapsed)
+    print(seconds_elapsed)
