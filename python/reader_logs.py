@@ -30,7 +30,6 @@ from multiprocessing import Pool, cpu_count
 from time import time
 import glob
 from collections import Counter
-from collections import ChainMap
 import sys
 import operator
 
@@ -71,6 +70,7 @@ if __name__ == "__main__":
     start_time = time()
     # p = Process(target=generate_logs, args=('bob',))
     with Pool(cpu_count()) as p:
+        # list of dict
         output = p.map(generate_logs, file_list)
     end_time = time()
     seconds_elapsed = end_time - start_time
@@ -78,8 +78,10 @@ if __name__ == "__main__":
     print("finished map function call...")
     print(seconds_elapsed)
 
+    res = Counter()
     start_time1 = time()
-    res = ChainMap(*output)
+    for each in output:
+        res += each
     end_time1 = time()
     seconds_elapsed1 = end_time1 - start_time1
 
