@@ -46,21 +46,28 @@ def generate_logs():
             for line in fin:
                 ip_list[line.split(" ")[0]] += 1
     print("number of unique IP addresses: " + str(len(ip_list)))
-
-    # quick way to see what this script is producing
-    # for now I will leave it commented out
-    # f = open("reader_single_output.txt", "w+")
-    # f.write(str(ip_list))
-    # f.close()
-
     return ip_list
+
+def write_top_ten(res):
+    # output the top 10 IP addresses in the log
+    a1_sorted_keys = sorted(res, key=res.get, reverse=True)
+    f = open("reader_single_output.txt", "w+")
+    x = 1
+    for r in a1_sorted_keys:
+        f.write("key: " + r + " value: " + str(res[r]) + "\n")
+        if x > 9:
+            break
+        else:
+            x += 1
+    f.close()
 
 
 if __name__ == "__main__":
 
     check_dir()
     start_time = time()
-    generate_logs()
+    output = generate_logs()
     end_time = time()
     seconds_elapsed = end_time - start_time
     print(seconds_elapsed)
+    write_top_ten(output)
