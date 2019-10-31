@@ -40,10 +40,12 @@ parser.add_argument('--files', type=int, help='number of files')
 # some of these variables I need in a global scope so they are here.
 print("generating ip list...")
 ip_list = []
-prefix = "192.168."
+prefix1 = "192.168."
+prefix2 = "10.1."
 for a in range(1, 255):
     for b in range(1, 255):
-        ip_list.append(prefix + str(a) + "." + str(b))
+        ip_list.append(prefix1 + str(a) + "." + str(b))
+        ip_list.append(prefix2 + str(a) + "." + str(b))
 print("ip_list ready.")
 
 END = ' - - [09/Jan/2015:19:12:06 +0000] 808840 "GET http://google.com HTTP/1.1" 200 17 "-" "POKEMON"' #NOQA
