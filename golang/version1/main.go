@@ -71,7 +71,6 @@ func main() {
 		files = append(files, path)
 		return nil
 	})
-	//fmt.Println(files[1:])
 
 	check(err)
 
@@ -92,13 +91,9 @@ func main() {
 				break
 			}
 
-			// fmt.Println(reflect.TypeOf(line))
-
 			line1 := strings.Split(line, " ")
 			ip := line1[0]
 			m[ip] += 1
-
-			// fmt.Println(ip)
 
 		}
 		file1.Close()
