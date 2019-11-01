@@ -3,13 +3,13 @@
 #### golang
 
 ##### version1
-golang has maps but maps have no order.  While maps seem very efficent for doing += 1 operations having no order does cause problems.  This is why you see a shell script in version1 that does the sort and head -n 10.  This seems very effiecent though.  I'm able to write the entire dataset to the file system, sort, and print the top 10 at the same speed at which version2 is running.
+golang has maps but maps have no order.  While maps seem very efficient for doing += 1 operations having no order does cause problems.  This is why you see a shell script in version1 that does the sort and head -n 10.  This seems very efficient though.  I'm able to write the entire dataset to the file system, sort, and print the top 10 at the same speed at which version2 is running.
 
 ##### version2
-version2 uses the same map concept.  Once the data structure is created I loop through it generating a struct that I can then sort.  This struct is then looped through 10 times to get the top 10 IP addresses.  This script runs almost in identical time as version1 which is interesting.  This script stores more in memory and less on the file system since we are not writing out the entire data set.  See version1 if you want the dataset written to the file system.
+version2 uses the same map concept.  Once the data structure is created I loop through it generating a struct that I can then sort.  This struct is then looped through 10 times to get the top 10 IP addresses.  This script runs almost at the same speed as version1 which is interesting.  This script stores more in memory and less on the file system since we are not writing out the entire data set.  See version1 if you want the dataset written to the file system.
 
 #### python
-I thought calling python with multiprocessing would speed up reading and getting the IP adddresses of the system.  Unfortunately this generates allot more data and requires allot more RAM.  It kept crashing aws instances on me because the dataset it was generating was too much.  I then tested reader_single_logs.py setup where we keep track of things in a single python dictionary.  This was surprisingly around the same speed and requires allot less RAM.  All the scripts I write I try to make sure they run on the cheapest hardware as well.  A t2.nano server performance is almost identical from python to golang.  reader_logs.sh won't finish or will end up using all the CPU credits.
+I thought calling python with multiprocessing would speed up reading and getting the IP adddresses of the system.  Unfortunately this generates allot more data and requires allot more RAM.  reader_logs.sh kept crashing aws instances on me because the dataset it was generating was too much.  I then tested reader_single_logs.py setup where we keep track of things in a single python dictionary.  This was surprisingly around the same speed and requires allot less RAM.  All the scripts I write I try to make sure they run on the cheapest hardware as well.  A t2.nano server performance is almost identical from python to golang.  reader_logs.sh won't finish or will end up using all the CPU credits.
 
 
 ```
