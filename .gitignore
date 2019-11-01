@@ -22,6 +22,9 @@ reader_output.txt
 writer_output.txt
 reader_single_output.txt
 python/test/*
+golang/version1/map_sort.txt
+golang/version1/map.txt
+golang/version1/version1
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
