@@ -1,7 +1,7 @@
 # load_testing
 
 ## Description 
-This is a collection of scripts that will similate logs being generated 
+This is a collection of scripts that will simulate logs being generated 
 by a web server.  
 
 I want to be able to do the following things:
