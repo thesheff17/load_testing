@@ -6,8 +6,8 @@ by a web server.
 
 I want to be able to do the following things:
 - read logs off file system as fast as possible
-- generate a data structure that counts the number IP adrress hits
-- prints or writes the top 10 IP addresses to a screen or file 
+- generate a data structure that counts the number IP address hits
+- prints or writes the top 10 IP addresses to the screen or file system
 
 Please make pull request if you see faster ways of doing this.  
 
@@ -18,15 +18,18 @@ There is some helper scripts:
 This script will write out about 10GB of log files into the test directory.
 This script will require python3.
 
-See otherinfo.md
+See otherinfo.md for more info
 
 #### test box
+
+```
 Current Date: Oct 31 2019
 4790K 
 ubuntu 18.04
 4.15.0-64-generic
 16GB RAM
 Samsung SSD 850 EVO 500GB
+```
 
 golang:
 ```
