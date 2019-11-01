@@ -91,18 +91,6 @@ sys	0m2.768s
 time ./reader_logs.py
 CPU count set to: 8
 finished map function call...
-33.06000876426697
-Time took to combine dictionaries...
-118.92307829856873
-number of unique ip address: 129032
-
-real	2m33.957s
-user	5m27.475s
-sys	0m18.256s
-
-time ./reader_logs.py
-CPU count set to: 8
-finished map function call...
 33.59377717971802
 Time took to combine dictionaries...
 112.61526894569397
