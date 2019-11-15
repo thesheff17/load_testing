@@ -1,6 +1,4 @@
-package main
-
-// Copyright (c) 2015, Dan Sheffner Digital Imaging Software Solutions, INC
+// Copyright (c) Dan Sheffner Digital Imaging Software Solutions, INC
 // All rights reserved.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -22,12 +20,15 @@ package main
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 // IN THE SOFTWARE.
 
+package main
+
 import (
 	"bufio"
 	"fmt"
 	"io"
 	"os"
 	"path/filepath"
+
 	// "reflect"
 	"os/exec"
 	"strconv"
@@ -40,7 +41,7 @@ func check(e error) {
 	}
 }
 
-func dump_obj(m *map[string]int) {
+func dumpobj(m *map[string]int) {
 	f, err := os.Create("./map.txt")
 	check(err)
 	for k, v := range *m {
@@ -84,7 +85,7 @@ func main() {
 		// loop
 		for {
 			line, err := reader.ReadString(newline2)
-			numOfLinesProcessed += 1
+			numOfLinesProcessed++
 
 			//break out of loop at end of file
 			if err == io.EOF {
@@ -93,14 +94,14 @@ func main() {
 
 			line1 := strings.Split(line, " ")
 			ip := line1[0]
-			m[ip] += 1
+			m[ip]++
 
 		}
 		file1.Close()
 	}
 	p := &m
 
-	dump_obj(p)
+	dumpobj(p)
 
 	fmt.Println("Number of unique IP addresses:")
 	fmt.Println(len(m))

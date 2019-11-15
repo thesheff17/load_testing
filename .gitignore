@@ -26,6 +26,7 @@ golang/version1/map_sort.txt
 golang/version1/map.txt
 golang/version1/version1
 golang/version2/version2
+golnag/version3/version3
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
